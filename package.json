@@ -1,0 +1,19 @@
+{
+  "name": "@indeeeah/calculator",
+  "version": "1.0.0",
+  "description": "calculate every thing",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/indeeeah/calculator.git"
+  },
+  "author": "indeeeah",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/indeeeah/calculator/issues"
+  },
+  "homepage": "https://github.com/indeeeah/calculator#readme"
+}
