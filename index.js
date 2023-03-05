@@ -70,6 +70,66 @@ class Calculator {
 
         return [...numbers];
     }
+    
+    /**
+     * 1보다 큰 작은 수와 큰 수 사이의 소수를 반환한다.
+     * @param {number} smallNumber 
+     * @param {number} bigNumber 
+     * @returns {Array[...number]} This is the result
+     */
+    primeNumberBetween (smallNumber, bigNumber) {
+        if (typeof smallNumber !== 'number' || typeof bigNumber !== 'number') {
+            throw new Error('Unmatched type');
+        }
+
+        let numbers = new Set();
+        for (let i = smallNumber ; i <= bigNumber ; i++) {
+            numbers.add(i);
+        }
+        numbers.delete(1);
+
+        const sqrt = Math.sqrt(bigNumber);
+        for (let i = 2 ; i <= sqrt ; i++) {
+            for (let j = i + i ; j <= bigNumber ; j += i) {
+                numbers.delete(j);
+            }
+        }
+
+        return [...numbers];
+    }
+
+    /**
+     * D.R. Kaprekar의 셀프 넘버를 반환한다.
+     * @param {number} number 
+     * @returns {Array[...number]} This is the result
+     */
+    selfNumber (number) {
+        if (typeof number !== 'number') {
+            throw new Error('Unmatched type');
+        }
+
+        let numbers = new Set();
+        for (let i = 1 ; i <= number ; i++) {
+            let num = i;
+            let stringNum = String(i);
+            for (let j = 0 ; j < stringNum.length ; j++) {
+                num += Number(stringNum[j]);
+            }
+
+            numbers.add(num);
+        }
+
+        let result = new Set();
+        for (let i = 1 ; i <= number ; i++) {
+            if (!numbers.has(i)) {
+                result.add(i);
+            }
+        }
+
+        return [...result];
+    }
+
+    
 }
 
 module.exports = Calculator;
